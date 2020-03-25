@@ -35,3 +35,16 @@ class DepartmentAdapter(object):
             connection.close_connection()
             return "Department was deleted"
         return "This department does not exist"
+
+    def update(self, id, department_dict):
+        connection = MsqlConnection()
+        sentenceSearh = "SELECT * FROM department WHERE ID = " + str(id)
+        row = connection.get_one(sentenceSearh)
+        if row:
+            sentence = "UPDATE department set department = '" + department_dict["department"] + "' WHERE ID = '" + str(id) + "'"
+            connection.execute(sentence)
+            connection.commit()
+
+            connection.close_connection()
+            return "Department was updated"
+        return "This department does not exist"

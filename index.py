@@ -48,11 +48,9 @@ except Error as e:
 
 from adapter.department import DepartmentAdapter
 
-
 department = {
-    "department": "net support"
+    "department": "prueba2"
 }
 
-
 functions = DepartmentAdapter()
-print(functions.list())
+print(functions.update(5, department))
