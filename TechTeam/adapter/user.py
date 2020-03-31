@@ -1,4 +1,4 @@
-from msql.MsqlConnection import MsqlConnection
+from TechTeam.msql.MsqlConnection import MsqlConnection
 
 
 class UserAdapter(object):

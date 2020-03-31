@@ -1,16 +1,8 @@
-from adapter.department import DepartmentAdapter
-from adapter.user import UserAdapter
-from adapter.admin_support import AdminSupportAdapter
-from adapter.department_involved import DepartmentInvolvedAdapter
-from adapter.department_country_support import DepartmentCountrySupportAdapter
-from adapter.employee_in_charge import EmployeeInChargeAdapter
-from adapter.problem_type import ProblemTypeAdapter
-from adapter.request import RequestAdapter
-from adapter.request_update import RequestUpdateAdapter
-from adapter.support_department import SupportDepartmentAdapter
+from TechTeam.adapter.admin_support import AdminSupportAdapter
+from TechTeam.adapter.department_country_support import DepartmentCountrySupportAdapter
 
 department = {
-    "department": "prueba4"
+    "department": "prueba5"
 }
 
 user = {
@@ -22,11 +14,11 @@ user = {
 }
 
 admin_support = {
-    "first_name": "Javier",
-    "last_name": "Sotooo",
-    "phone": "3453",
-    "email": "caoto@gmail.com",
-    "employee_serial": "45",
+    "first_name": "xxxx",
+    "last_name": "xxxx",
+    "phone": "344",
+    "email": "xxxxx@gmail.com",
+    "employee_serial": "33",
     "id_support_department": "3"
 }
 
@@ -36,8 +28,8 @@ department_involved = {
 }
 
 department_country_support = {
-    # "id_department": "1",
-    "country": "mexico"
+    "id_department": "7",
+    "country": "USA"
 }
 
 employee_in_charge = {
@@ -79,19 +71,5 @@ support_department = {
     "email": "good",
 }
 
-functions = DepartmentAdapter()
-functions2 = UserAdapter()
-functions3 = AdminSupportAdapter()
-functions4 = DepartmentInvolvedAdapter()
-functions5 = DepartmentCountrySupportAdapter()
-functions6 = EmployeeInChargeAdapter()
-functions7 = ProblemTypeAdapter()
-functions8 = RequestAdapter()
-functions9 = RequestUpdateAdapter
-functions10 = SupportDepartmentAdapter
-
-# print(functions.new(department))
-# print(functions2.update(1, user))
-# print(functions3.update(1, admin_support))
-# print(functions4.new(department_involved))
-# print(functions5.new(department_country_support))
+functions = DepartmentCountrySupportAdapter()
+print(functions.update(4, department_country_support))

@@ -1,4 +1,4 @@
-from msql.MsqlConnection import MsqlConnection
+from TechTeam.msql.MsqlConnection import MsqlConnection
 
 """
 Esta clase no jala por las llaves foraneas
