@@ -23,11 +23,20 @@ class AdminSupportAdapter(object):
 
     def new(self, admin_dict):
         connection = MsqlConnection()
-        sentence = "INSERT admin_support(first_name, last_name, phone, email, employee_serial, id_support_department) VALUES('" + admin_dict["first_name"] + "','" + admin_dict["last_name"] + "','" + admin_dict["phone"] + "','" + admin_dict["email"] + "','" + admin_dict["employee_serial"] + "','" + admin_dict["id_support_department"] + "') "
-        connection.execute(sentence)
-        connection.commit()
-        connection.close_connection()
-        return "admin_support was created correctly"""
+        sentence_search = "SELECT * FROM support_department WHERE id='" + admin_dict["id_support_department"] + "'"
+        row = connection.get_all(sentence_search)
+        if row:
+            sentence = "INSERT admin_support(first_name, last_name, phone, email, employee_serial, id_support_department) " \
+                       "VALUES('" + admin_dict["first_name"] + "','" + admin_dict["last_name"] + "','" + admin_dict[
+                           "phone"] + "','" + admin_dict["email"] + "','" + admin_dict["employee_serial"] + "','" + \
+                       admin_dict["id_support_department"] + "') "
+            connection.execute(sentence)
+            connection.commit()
+            connection.close_connection()
+            return "admin_support was created correctly"
+        else:
+            connection.close_connection()
+            return "This support department does not exist"
 
     def delete(self, id):
         connection = MsqlConnection()
@@ -43,13 +52,18 @@ class AdminSupportAdapter(object):
 
     def update(self, id, admin_dict):
         connection = MsqlConnection()
-        sentenceSearh = "SELECT * FROM admin_support WHERE ID = " + str(id)
-        row = connection.get_one(sentenceSearh)
+        sentence_search = "SELECT * FROM support_department WHERE id='" + admin_dict["id_support_department"] + "'"
+        row = connection.get_all(sentence_search)
         if row:
-            sentence = "UPDATE admin_support set first_name = '" + admin_dict["first_name"] + "',  last_name = '" + admin_dict["last_name"] + "', phone = '" + admin_dict["phone"] + "', email = '" + admin_dict["email"] + "', employee_serial = '" + admin_dict["employee_serial"] + "', employee_serial = '" + admin_dict["id_support_department"] + "' WHERE ID = '" + str(id) + "'"
+            sentence = "UPDATE admin_support set first_name = '" + admin_dict["first_name"] + "',  last_name = '" + \
+                       admin_dict["last_name"] + "', phone = '" + admin_dict["phone"] + "', email = '" + admin_dict[
+                           "email"] + "', employee_serial = '" + admin_dict["employee_serial"] + "', employee_serial = '" + \
+                       admin_dict["id_support_department"] + "' WHERE ID = '" + str(id) + "'"
             connection.execute(sentence)
             connection.commit()
-
             connection.close_connection()
-            return "Admin_support was updated"
-        return "This admin_support does not exist"
+            return "admin_support was updated correctly"
+        else:
+            connection.close_connection()
+            return "This support department does not exist"
+

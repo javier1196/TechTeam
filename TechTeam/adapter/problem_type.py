@@ -1,8 +1,5 @@
 from TechTeam.msql.MsqlConnection import MsqlConnection
 
-"""
-las llaves foraneas no jalan
-"""
 
 class ProblemTypeAdapter(object):
     def list(self):
@@ -13,8 +10,9 @@ class ProblemTypeAdapter(object):
         records_to_return = []
         for record in records:
             each_problem_type = {
-                "name": record[0],
-                "description": record[1],
+                "id": record[0],
+                "name": record[1],
+                "description": record[2],
             }
             records_to_return.append(each_problem_type)
         return records_to_return
@@ -23,7 +21,7 @@ class ProblemTypeAdapter(object):
         connection = MsqlConnection()
         sentence = "INSERT problem_types(name, description) " \
                    "VALUES('" + problem_type_dict["name"] + "','" + problem_type_dict[
-                       "description"] + "') "
+                       "description"] + "')"
         connection.execute(sentence)
         connection.commit()
         connection.close_connection()
@@ -47,7 +45,7 @@ class ProblemTypeAdapter(object):
         row = connection.get_one(sentenceSearh)
         if row:
             sentence = "UPDATE problem_types set name = '" + problem_types_dict[
-                "name"] + "',  description = '" + "' WHERE ID = '" + str(id) + "'"
+                "name"] + "',  description = '" + problem_types_dict["description"] + "' WHERE ID = '" + str(id) + "'"
             connection.execute(sentence)
             connection.commit()
 
