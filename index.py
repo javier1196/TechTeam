@@ -8,9 +8,12 @@ from TechTeam.adapter.problem_type import ProblemTypeAdapter
 from TechTeam.adapter.request import RequestAdapter
 from TechTeam.adapter.request_update import RequestUpdateAdapter
 from TechTeam.adapter.user import UserAdapter
+<<<<<<< HEAD
 from TechTeam.adapter.support_department_problem_type import SupportDepartmentProblemType
 import hashlib
 
+=======
+>>>>>>> master
 
 department = {
     "department": "prueba5"
@@ -75,6 +78,7 @@ support_department = {
     "id_department": "8",
     "name": "Prueba",
     "email": "bad",
+<<<<<<< HEAD
 }
 
 support_deparment_dict = {
@@ -87,3 +91,9 @@ passw = "Hola"
 functions = RequestAdapter()
 print(functions.getRequestInvolved("benjamintoab10@gmail.com"))
 #print(functions.())
+=======
+}
+
+functions = ProblemTypeAdapter()
+print(functions.update('4',problem_type))
+>>>>>>> master

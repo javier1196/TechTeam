@@ -23,6 +23,7 @@ class AdminSupportAdapter(object):
 
     def get(self, mail):
         connection = MsqlConnection()
+<<<<<<< HEAD
         sentence = "SELECT * FROM admin_support WHERE email = '" + mail + "'"
         records = connection.get_all(sentence)
         connection.close_connection()
@@ -40,6 +41,8 @@ class AdminSupportAdapter(object):
 
     def new(self, admin_dict):
         connection = MsqlConnection()
+=======
+>>>>>>> master
         sentence_search = "SELECT * FROM support_department WHERE id='" + admin_dict["id_support_department"] + "'"
         row = connection.get_all(sentence_search)
         if row:

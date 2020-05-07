@@ -1,6 +1,9 @@
 from TechTeam.msql.MsqlConnection import MsqlConnection
+<<<<<<< HEAD
 from TechTeam.adapter.user import UserAdapter
 from TechTeam.adapter.admin_support import AdminSupportAdapter
+=======
+>>>>>>> master
 import datetime
 
 
