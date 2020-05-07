@@ -2,6 +2,29 @@ from TechTeam.msql.MsqlConnection import MsqlConnection
 
 
 class UserAdapter(object):
+
+    def getId(self, mail):
+        connection = MsqlConnection()
+        sentenceSearh = "SELECT ID FROM users WHERE EMAIL = '" + mail + "'"
+        record = connection.get_one(sentenceSearh)
+        return record[0]
+
+    def get(self, mail):
+        connection = MsqlConnection()
+        sentence = "SELECT * FROM users WHERE email = '" + mail + "'"
+        records = connection.get_all(sentence)
+        connection.close_connection()
+        for record in records:
+            each_user = {
+                "id": record[0],
+                "first_name": record[1],
+                "last_name": record[2],
+                "phone": record[3],
+                "email": record[4],
+                "employee_serial": record[5]
+            }
+        return each_user
+
     def list(self):
         connection = MsqlConnection()
         sentence = "SELECT * FROM users"

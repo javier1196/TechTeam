@@ -1,30 +1,41 @@
 from TechTeam.adapter.admin_support import AdminSupportAdapter
+from TechTeam.adapter.department import DepartmentAdapter
 from TechTeam.adapter.department_country_support import DepartmentCountrySupportAdapter
+from TechTeam.adapter.department_involved import DepartmentInvolvedAdapter
+from TechTeam.adapter.employee_in_charge import EmployeeInChargeAdapter
+from TechTeam.adapter.support_department import SupportDepartmentAdapter
+from TechTeam.adapter.problem_type import ProblemTypeAdapter
+from TechTeam.adapter.request import RequestAdapter
+from TechTeam.adapter.request_update import RequestUpdateAdapter
+from TechTeam.adapter.user import UserAdapter
+from TechTeam.adapter.support_department_problem_type import SupportDepartmentProblemType
+import hashlib
+
 
 department = {
     "department": "prueba5"
 }
 
 user = {
-    "first_name": "Caro",
-    "last_name": "Soto",
-    "phone": "1234567890",
-    "email": "carosoto@gmail.com",
-    "employee_serial": "69"
+    "first_name": "xxx",
+    "last_name": "xxx",
+    "phone": "123",
+    "email": "xxx@gmail.com",
+    "employee_serial": "1234"
 }
 
 admin_support = {
-    "first_name": "xxxx",
-    "last_name": "xxxx",
-    "phone": "344",
-    "email": "xxxxx@gmail.com",
-    "employee_serial": "33",
-    "id_support_department": "3"
+    "first_name": "aa",
+    "last_name": "aa",
+    "phone": "45",
+    "email": "ty@gmail.com",
+    "employee_serial": "22",
+    "id_support_department": "90"
 }
 
 department_involved = {
-    # "id_department_support": "1",
-    # "id_request": "3"
+    "id_department_support": "1",
+    "id_request": "10"
 }
 
 department_country_support = {
@@ -33,7 +44,7 @@ department_country_support = {
 }
 
 employee_in_charge = {
-    # "id_department": "1",
+    "id_department": "2",
     "first_name": "Javier",
     "last_name": "Sotooo",
     "phone": "3453",
@@ -42,34 +53,37 @@ employee_in_charge = {
 }
 
 problem_type = {
-    "name": "Config",
-    "Description": "balbalblablalbla"
+    "name": "aa",
+    "description": "aaaa"
 }
 
 request = {
-    # "id_problem_type": "1",
+    "id_problem_type": "1",
     "description": "blablabla",
-    "creation_date": "",
-    "update_date": "",
-    "date_closed_ticket": "",
-    "status": "good",
-    "solution": "blablabla",
-    "priority": "urge",
+    "user_id_creation": "1",
+    "priority": "High",
     "country": "mexico",
 }
 
 request_update = {
-    # "id_problem_type": "1",
+    "id_department_support": "1",
     "description": "blablabla",
-    "status": "good",
-    "date": "",
+    "status": "In process"
 }
 
 support_department = {
-    # "id_department": "1",
-    "name": "blablabla",
-    "email": "good",
+    "id_department": "8",
+    "name": "Prueba",
+    "email": "bad",
 }
 
-functions = DepartmentCountrySupportAdapter()
-print(functions.update(4, department_country_support))
+support_deparment_dict = {
+    "id_problem_type": "3",
+    "id_department_support": "1"
+}
+
+passw = "Hola"
+
+functions = RequestAdapter()
+print(functions.getRequestInvolved("benjamintoab10@gmail.com"))
+#print(functions.())

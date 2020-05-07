@@ -1,9 +1,5 @@
 from TechTeam.msql.MsqlConnection import MsqlConnection
 
-"""
-las llaves foraneas no jalan
-"""
-
 
 class DepartmentCountrySupportAdapter(object):
     def list(self):
